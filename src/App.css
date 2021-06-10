@@ -45,8 +45,9 @@
 
 .video-cont {
   text-align: center;
-  height: 700px;
-  width: 700px;
+  height: 500px;
+  width: 500px;
   padding: 20px;
-  margin: auto;
+  margin-left: 70px;  
+  float: left;
 }

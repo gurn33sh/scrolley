@@ -44,12 +44,12 @@ class Scrolller:
 
 def load():
     print("load")
-    sc = Scrolller("holdthemoan", "https://api.scrolller.com/api/v2/graphql")
+    sc = Scrolller("wallpapers", "https://api.scrolller.com/api/v2/graphql")
     json = sc.request()['data']['getSubreddit']['children']['items']
     # with open('test.json', 'w') as f:
     #     f.write(json_lib.dumps(json))
     global urls
-    urls = [i['mediaSources'][0]['url'] for i in json ]
+    urls = [i['mediaSources'][-1]['url'] for i in json ][:10]
     # print(urls)
     # print(json)
     # urls_old = [i['mediaSources'][0]['url'] if i['mediaSources'][0]['url'].endswith('.jpg') else None for i in json ]
