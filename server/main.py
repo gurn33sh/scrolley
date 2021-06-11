@@ -44,7 +44,7 @@ class Scrolller:
 
 def load():
     print("load")
-    sc = Scrolller("lenapaul", "https://api.scrolller.com/api/v2/graphql")
+    sc = Scrolller("wallpapers", "https://api.scrolller.com/api/v2/graphql")
     json = sc.request()['data']['getSubreddit']['children']['items']
     # with open('test.json', 'w') as f:
     #     f.write(json_lib.dumps(json))
@@ -102,4 +102,4 @@ if __name__ == '__main__':
     # #     print(i)
     #     # print()
     # # print(len(urls_new))
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
