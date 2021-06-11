@@ -44,7 +44,7 @@ class Scrolller:
 
 def load():
     print("load")
-    sc = Scrolller("wallpapers", "https://api.scrolller.com/api/v2/graphql")
+    sc = Scrolller("lenapaul", "https://api.scrolller.com/api/v2/graphql")
     json = sc.request()['data']['getSubreddit']['children']['items']
     # with open('test.json', 'w') as f:
     #     f.write(json_lib.dumps(json))
