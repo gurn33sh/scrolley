@@ -1,4 +1,4 @@
-import React, { createElement, useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 
 function Vidorimg(props) {
     console.log('gggggggggggggggggggggggggg', props.status)
@@ -6,7 +6,7 @@ function Vidorimg(props) {
     if (props.status === 'vid') {
         return (
             <div>
-                <video controls autoPlay loop muted src={props.src} id='vid1' onmouseover={(event) => this.event.target.play()} onmouseout={() => this.event.target.pause()} className="video-cont" preload="none">
+                <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => {event.target.play()}} onMouseOut={(event) => {event.target.pause()}} className="video-cont" preload="none">
                     <source type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -20,21 +20,21 @@ function Vidorimg(props) {
 
 function Home() {
     let [urls, setUrls] = useState([])
-    let count = 0
-    let count1 = 0
-    let count2 = 1
 
     const reload = async (par) => {
-        console.log('button clicked', par)
-        let resp = await fetch('http://localhost:5000/dev/reload')
-        let data = await resp.json()
-        urls = data
-        console.log(urls)
+        try {
+            console.log('button clicked', par)
+            await fetch('http://192.168.1.3:5000/dev/reload')
+            console.log(urls)
+            window.location.reload(false)
+        } catch(error) {
+            console.log(error)
+        }
     }
 
     const fetchImages = async () => {
         try {
-            let resp = await fetch('http://localhost:5000/dev/images')
+            let resp = await fetch('http://192.168.1.3:5000/dev/images')
             let data = await resp.json()
             console.log('pppppppppppppppppppp', data[0])
             return data
@@ -47,10 +47,7 @@ function Home() {
     useLayoutEffect(() => {
         async function fetchData() {
             let resp = await fetchImages()
-            console.log('mmmm', mounted)
             setUrls(resp)
-            console.log('mmmm', mounted)
-            console.log('uuuuuuuuuuuuuuuuuuuuu', urls)
             console.log("This is test")
         }
         fetchData()
@@ -72,7 +69,7 @@ function Home() {
                     <Vidorimg src={url} status={status} />
                 )
             })}
-            <button type="button" className="button" onClick={() => reload("reload")}>Reload</button> */}
+            <button type="button" className="button" onClick={() => reload("reload")}>Reload</button>
         </div>
     )
 }
