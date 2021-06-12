@@ -5,5 +5,9 @@
   "license": "MIT",
   "bin": {
     "image-resize": "node image.js"
+  },
+  "dependencies": {
+    "gifs-api": "0.0.4",
+    "slugify": "^1.5.3"
   }
 }
