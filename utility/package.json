@@ -7,7 +7,10 @@
     "image-resize": "node image.js"
   },
   "dependencies": {
+    "@supercharge/filesystem": "^2.3.0",
     "gifs-api": "0.0.4",
-    "slugify": "^1.5.3"
+    "sharp": "^0.28.3",
+    "slugify": "^1.5.3",
+    "youtube-dl-exec": "^1.2.4"
   }
 }
