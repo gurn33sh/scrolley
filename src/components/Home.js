@@ -55,11 +55,10 @@ function Home() {
 
     return (
         <div>
-            {console.log('kkkkkkkkkkkkkk', urls)}
+            {console.log('kkkkkkkkkkkkkk', urls['urls'])}
             {urls.map((url) => {
                 let status = 'img'
-                console.log("This is testing url gurneesh singh chahal", url)
-                if (url.endsWith('.jpg')) {
+                if (url.endsWith('.jpg') || url.endsWith('jpeg') || url.endsWith('png')) {
                     status = 'img'
                 }
                 else {

@@ -29,4 +29,6 @@ api.get('/dev/reload', (req, res) => {
     res.send({'message': 'Under Development'})
 })
 
+// Database is synced...
+
 api.listen(5000, () => {console.log("server listening on port 3000")})
