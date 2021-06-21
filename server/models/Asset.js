@@ -7,9 +7,6 @@ const Asset = sequelize.define('Asset', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    Description: {
-        type: DataTypes.STRING,
-    },
     Reddit_id: {
         type: DataTypes.STRING,
         allowNull: false
@@ -21,6 +18,9 @@ const Asset = sequelize.define('Asset', {
     Type: {
         type: DataTypes.STRING, 
         allowNull: false
+    },
+    Poster: {
+        type: DataTypes.STRING
     },
     bucket_url: {
         type: DataTypes.STRING,

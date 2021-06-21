@@ -6,7 +6,7 @@ function Vidorimg(props) {
     if (props.status === 'vid') {
         return (
             <div>
-                <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => {event.target.play()}} onMouseOut={(event) => {event.target.pause()}} className="video-cont" preload="none">
+                <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => {event.target.play()}} onMouseOut={(event) => {event.target.pause()}} className="video-cont" preload="none" poster={props.poster}>
                     <source type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -56,16 +56,16 @@ function Home() {
     return (
         <div>
             {console.log('kkkkkkkkkkkkkk', urls['urls'])}
-            {urls.map((url) => {
+            {urls.map((asset) => {
                 let status = 'img'
-                if (url.endsWith('.jpg') || url.endsWith('jpeg') || url.endsWith('png')) {
+                if (asset.url.endsWith('.jpg') || asset.url.endsWith('jpeg') || asset.url.endsWith('png')) {
                     status = 'img'
                 }
                 else {
                     status = 'vid'
                 }
                 return (
-                    <Vidorimg src={url} status={status} />
+                    <Vidorimg src={asset.url} status={status} poster={asset.poster}/>
                 )
             })}
             <button type="button" className="button" onClick={() => reload("reload")}>Reload</button>

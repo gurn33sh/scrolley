@@ -1,11 +1,13 @@
 import sequelize from '../services/db.js'
 import { Sequelize } from 'sequelize'
+import Asset from './Asset.js'
 const { DataTypes } = Sequelize
 
 const Subreddit = sequelize.define('Subreddit', {
     Name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     isNSFW: {
         type: DataTypes.BOOLEAN,
@@ -16,6 +18,12 @@ const Subreddit = sequelize.define('Subreddit', {
     },
     lastID: {
         type: DataTypes.STRING,
+    }
+})
+
+Subreddit.hasMany(Asset, {
+    foreignKey:{
+        allowNull: false
     }
 })
 
