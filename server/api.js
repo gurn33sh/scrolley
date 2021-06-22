@@ -26,7 +26,7 @@ api.get('/dev/images', cors(), async (req, res) => {
     results = JSON.parse(JSON.stringify(results))
     for (const result in results) {
         urls.push({
-            url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['bucket_url'],
+            url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['resized_url'],
             poster: results[result]['Poster']
         })
     }

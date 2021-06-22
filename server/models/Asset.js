@@ -25,6 +25,9 @@ const Asset = sequelize.define('Asset', {
     bucket_url: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    resized_url: {
+        type: DataTypes.STRING
     }
 })
 

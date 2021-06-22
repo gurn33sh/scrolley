@@ -6,7 +6,7 @@ function Vidorimg(props) {
     if (props.status === 'vid') {
         return (
             <div>
-                <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => {event.target.play()}} onMouseOut={(event) => {event.target.pause()}} className="video-cont" preload="none" poster={props.poster}>
+                <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => { event.target.play() }} onMouseOut={(event) => { event.target.pause() }} className="video-cont" preload="none" poster={props.poster}>
                     <source type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -14,23 +14,27 @@ function Vidorimg(props) {
         )
     }
     else if (props.status === 'img') {
-        return <img id="img1" src={props.src} className="picture" alt="img1" loading="lazy" />
+        return (
+            <div className="asset-container">
+                <img id="img1" src={props.src} className="picture" alt="img1" loading="lazy" />
+            </div>
+        )
     }
 }
 
 function Home() {
     let [urls, setUrls] = useState([])
 
-    const reload = async (par) => {
-        try {
-            console.log('button clicked', par)
-            await fetch('http://192.168.1.3:5000/dev/reload')
-            console.log(urls)
-            window.location.reload(false)
-        } catch(error) {
-            console.log(error)
-        }
-    }
+    // const reload = async (par) => {
+    //     try {
+    //         console.log('button clicked', par)
+    //         await fetch('http://192.168.1.3:5000/dev/reload')
+    //         console.log(urls)
+    //         window.location.reload(false)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+    // }
 
     const fetchImages = async () => {
         try {
@@ -54,6 +58,7 @@ function Home() {
     }, [])
 
     return (
+        <div className="parent-container">
         <div>
             {console.log('kkkkkkkkkkkkkk', urls['urls'])}
             {urls.map((asset) => {
@@ -65,10 +70,11 @@ function Home() {
                     status = 'vid'
                 }
                 return (
-                    <Vidorimg src={asset.url} status={status} poster={asset.poster}/>
+                    <Vidorimg src={asset.url} status={status} poster={asset.poster} />
                 )
             })}
-            <button type="button" className="button" onClick={() => reload("reload")}>Reload</button>
+            {/* <button type="button" className="button" onClick={() => reload("reload")}>Reload</button> */}
+        </div>
         </div>
     )
 }
