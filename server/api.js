@@ -20,17 +20,27 @@ api.get('/dev/images', cors(), async (req, res) => {
     // Implementing Database access
     let urls = []
     let results = await Asset.findAll({
-        // limit: 20,
+        where: {
+            SubredditId: 4,
+            Type: 'image'
+        },
+         //limit: 5,
         order: sequelize.random()
     })
     results = JSON.parse(JSON.stringify(results))
+    // console.log(results)
     for (const result in results) {
+        // urls.push(
+        //     'http://192.168.43.242:9000/reddit-media/' + results[result]['resized_url']
+        // )
         urls.push({
-            url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['resized_url'],
-            poster: results[result]['Poster']
+            url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['bucket_url'],
+            poster: results[result]['Poster'],
+            height: results[result]['height'],
+            width: results[result]['width']
         })
     }
-    res.send(urls)
+    res.send(JSON.stringify(urls))
 })
 
 api.get('/dev/favicon.ico', cors(), (req, res) => {
@@ -45,4 +55,4 @@ api.get('/dev/reload', (req, res) => {
 // Database is synced...
 // await sequelize.sync({force: true})
 
-api.listen(5000, () => {console.log("server listening on port 3000")})
+api.listen(5000, () => {console.log("server listening on port 5000")})

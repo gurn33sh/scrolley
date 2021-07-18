@@ -28,6 +28,14 @@ const Asset = sequelize.define('Asset', {
     },
     resized_url: {
         type: DataTypes.STRING
+    },
+    height: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    width: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 })
 
