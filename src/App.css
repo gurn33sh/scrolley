@@ -1,35 +1,41 @@
-.App {
-  display: block;
-  text-align: center;
-  margin-left: 10%;
-  margin-right: 15%;
-}
-
-@media screen and (max-width: 400px) {   
+@media screen and (max-width: 800px) {   
   .App {
     margin: 0 auto;
-    text-align: start;
   }
 
   .content {
-    height: 300px;
-    width: 300px;
+    height: 196px;
+    width: 196px;
     margin: 0px auto;
+    border: 10px rgba(0, 0, 0, 0.2)
   }
 
   .parent-container {
     display: grid;
     margin-left: 0px auto;
-    grid-template-columns: repeat(auto-fill, 300px);
+    padding: 0;
+    margin: 0;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.parent-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-}
+@media screen and (min-width: 1920px) {
+  .App {
+    display: block;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 15%;
+  }
 
-.content {
-  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);
-  /* margin: 5px; */
+  .content {
+    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2); 
+    /* margin: 5px; */
+  }
+
+  .parent-container {
+    display: grid;
+    column-gap: 0;
+    padding: 100px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
 }
