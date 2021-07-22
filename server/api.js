@@ -21,7 +21,7 @@ api.get('/dev/images', cors(), async (req, res) => {
     let urls = []
     let results = await Asset.findAll({
         where: {
-            SubredditId: 6,
+            SubredditId: 1,
             Type: 'image'
         },
          //limit: 5,

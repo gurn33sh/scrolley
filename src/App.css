@@ -6,7 +6,6 @@
   .content {
     height: 196px;
     width: 196px;
-    margin: 0px auto;
     border: 10px rgba(0, 0, 0, 0.2)
   }
 
@@ -23,17 +22,23 @@
   .App {
     display: block;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 15%;
+    margin-left: 13%;
+    margin-right: 10%;
   }
 
   .content {
     box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2); 
+    height: 400;
+    width: 400;
+    margin-top: 15px;
+    text-align: center;
+    /* margin: 0px auto; */
     /* margin: 5px; */
   }
 
   .parent-container {
     display: grid;
+    gap: 0px;
     column-gap: 0;
     padding: 100px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));

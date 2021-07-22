@@ -17,7 +17,7 @@ function Vidorimg(props) {
     console.log('ffffffffffffffffffffffffffffff', props.src)
     if (props.status === 'vid') {
         return (
-            <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => { event.target.play() }} onMouseOut={(event) => { event.target.pause() }} className="video-cont" preload="none" poster={props.poster}>
+            <video controls loop muted src={props.src} id='vid1' onMouseOver={(event) => { event.target.play() }} onMouseOut={(event) => { event.target.pause() }} className="content" height="400" widt="400" preload="none" poster={props.poster}>
                 <source type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
