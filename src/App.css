@@ -4,8 +4,10 @@
   }
 
   .content {
-    height: 196px;
-    width: 196px;
+    /* height: 196px;
+    width: 196px; */
+    height: auto;
+    width: 100%;
     border: 10px rgba(0, 0, 0, 0.2)
   }
 
@@ -28,8 +30,10 @@
 
   .content {
     box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2); 
-    height: 400;
-    width: 400;
+    height: 400px;
+    width: 400px;
+    /* height: auto;
+    width: 100%; */
     margin-top: 15px;
     text-align: center;
     /* margin: 0px auto; */

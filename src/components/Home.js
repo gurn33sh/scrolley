@@ -1,5 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import Image from './Image'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,7 +27,11 @@ function Vidorimg(props) {
     }
     else if (props.status === 'img') {
         return (
-            <img id="img1" src={props.src} className="content" height={props.height} width="400" alt="img1" loading="lazy" />
+            <div>
+                <Link to={`/g/${props.src}`}>
+                    <img id="img1" src={props.src} className="content" height={props.height} width={props.width} alt="img1" loading="lazy" />
+                </Link>
+            </div>
         )
     }
 }
@@ -68,7 +74,7 @@ function Home() {
     const classes = useStyles();
 
     return (
-        <div className="parent-container">
+        <div>
             {console.log('kkkkkkkkkkkkkk', urls['urls'])}
             {urls.map((asset, index) => {
                 console.log('ppppppppppppppppppppppppppp', asset.height)
@@ -81,7 +87,9 @@ function Home() {
                     status = 'vid'
                 }
                 return (
-                    <Vidorimg src={asset.url} status={status} poster={asset.poster} height={asset.height} width={asset.width} />
+                    <div>
+                        <Vidorimg src={asset.url} status={status} poster={asset.poster} height={asset.height} width={asset.width} />
+                    </div>
                 )
             })}
             {/* <button type="button" className="button" onClick={() => reload("reload")}>Reload</button> */}

@@ -21,7 +21,7 @@ api.get('/dev/images', cors(), async (req, res) => {
     let urls = []
     let results = await Asset.findAll({
         where: {
-            SubredditId: 1,
+            SubredditId: 2,
             Type: 'image'
         },
          //limit: 5,
@@ -33,8 +33,10 @@ api.get('/dev/images', cors(), async (req, res) => {
         // urls.push(
         //     'http://192.168.43.242:9000/reddit-media/' + results[result]['resized_url']
         // )
+        
         urls.push({
             url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['bucket_url'],
+            // url: results[result]['bucket_url'],
             poster: results[result]['Poster'],
             height: results[result]['height'],
             width: results[result]['width']
