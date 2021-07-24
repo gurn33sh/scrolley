@@ -27,11 +27,9 @@ function Vidorimg(props) {
     }
     else if (props.status === 'img') {
         return (
-            <div>
-                <Link to={`/g/${props.src}`}>
-                    <img id="img1" src={props.src} className="content" height={props.height} width={props.width} alt="img1" loading="lazy" />
-                </Link>
-            </div>
+        <Link to={`/g/${props.src}`} className="">
+            <img id="img1" src={props.src} className="content" height={props.height} width={props.width} alt="img1" loading="lazy" />
+        </Link>
         )
     }
 }
@@ -74,7 +72,7 @@ function Home() {
     const classes = useStyles();
 
     return (
-        <div>
+        <div className="parent-container">
             {console.log('kkkkkkkkkkkkkk', urls['urls'])}
             {urls.map((asset, index) => {
                 console.log('ppppppppppppppppppppppppppp', asset.height)

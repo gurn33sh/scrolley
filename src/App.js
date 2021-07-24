@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navigation SubredditName="wallpapers" />
         <Switch>
           <Route exact={true} path="/">
+            <Navigation SubredditName="wallpapers" />
             <Home />
           </Route>
           <Route exact={true} path="/g/subreddits/:subreddit/:type/:id" component={Image} />

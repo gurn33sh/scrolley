@@ -35,8 +35,8 @@ api.get('/dev/images', cors(), async (req, res) => {
         // )
         
         urls.push({
-            url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['bucket_url'],
-            // url: results[result]['bucket_url'],
+            // url: 'http://192.168.1.3:9000/reddit-media/' + results[result]['bucket_url'],
+            url: results[result]['bucket_url'],
             poster: results[result]['Poster'],
             height: results[result]['height'],
             width: results[result]['width']

@@ -4,8 +4,8 @@
   }
 
   .content {
-    /* height: 196px;
-    width: 196px; */
+    height: 196px;
+    width: 196px;
     height: auto;
     width: 100%;
     border: 10px rgba(0, 0, 0, 0.2)
@@ -46,5 +46,18 @@
     column-gap: 0;
     padding: 100px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  
+  .full-img {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    object-fit: contain;
+    margin: 0 auto !important;
   }
 }
