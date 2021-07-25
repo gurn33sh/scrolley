@@ -4,20 +4,20 @@
   }
 
   .content {
-    height: 196px;
-    width: 196px;
+    /* height: 196px;
+    width: 196px; */
     height: auto;
     width: 100%;
-    border: 10px rgba(0, 0, 0, 0.2)
+    /* border: 10px rgba(0, 0, 0, 0.2) */
   }
 
-  .parent-container {
+  /* .parent-container {
     display: grid;
     margin-left: 0px auto;
     padding: 0;
     margin: 0;
     grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 }
 
 @media screen and (min-width: 1920px) {
@@ -29,24 +29,24 @@
   }
 
   .content {
-    box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2); 
-    height: 400px;
-    width: 400px;
-    /* height: auto;
-    width: 100%; */
-    margin-top: 15px;
+    /* box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.2);  */
+    /* height: 400px;
+    width: 400px; */
+    height: auto;
+    width: 100%;
+    /* margin-top: 15px; */
     text-align: center;
     /* margin: 0px auto; */
     /* margin: 5px; */
   }
 
-  .parent-container {
+  /* .parent-container {
     display: grid;
     gap: 0px;
     column-gap: 0;
     padding: 100px;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  }
+  } */
   
   .full-img {
     top: 0;
@@ -60,4 +60,22 @@
     object-fit: contain;
     margin: 0 auto !important;
   }
+}
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  /*  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  /* padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  /* background: rgb(247, 180, 105); */
+  /* margin-bottom: 30px; */
 }

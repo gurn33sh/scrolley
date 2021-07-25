@@ -2,6 +2,8 @@ import React, { useLayoutEffect, useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Image from './Image'
+import Masonry from 'react-masonry-css'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,9 +29,9 @@ function Vidorimg(props) {
     }
     else if (props.status === 'img') {
         return (
-        <Link to={`/g/${props.src}`} className="">
-            <img id="img1" src={props.src} className="content" height={props.height} width={props.width} alt="img1" loading="lazy" />
-        </Link>
+            <Link to={`/g/${props.src}`} className="">
+                <img id="img1" src={props.src} className="content" height={props.height} width={props.width} alt="img1" loading="lazy" />
+            </Link>
         )
     }
 }
@@ -70,9 +72,18 @@ function Home() {
     }, [])
 
     const classes = useStyles();
+    const breakpointColumnsObj = {
+        default: 3,
+        1100: 3,
+        700: 2,
+        800: 2
+    };
 
     return (
         <div className="parent-container">
+            <Masonry breakpointCols={breakpointColumnsObj}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column">
             {console.log('kkkkkkkkkkkkkk', urls['urls'])}
             {urls.map((asset, index) => {
                 console.log('ppppppppppppppppppppppppppp', asset.height)
@@ -91,7 +102,8 @@ function Home() {
                 )
             })}
             {/* <button type="button" className="button" onClick={() => reload("reload")}>Reload</button> */}
-        </div>
+            </Masonry >
+        </div >
     )
 }
 

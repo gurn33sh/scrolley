@@ -27,7 +27,7 @@ export default function ButtonAppBar(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar style={{ background: '#5C0647', fontFamily: 'comic-sans' }} position="static">
+            <AppBar style={{ background: '#272E34', fontFamily: 'comic-sans' }} position="static">
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
@@ -41,3 +41,5 @@ export default function ButtonAppBar(props) {
         </div>
     );
 }
+
+//25465C
